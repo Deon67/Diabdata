@@ -1,4 +1,4 @@
-import streamline as st
+import streamlit as st
 
 def main():
 	st.write("# hey it is working")
