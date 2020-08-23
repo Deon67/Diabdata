@@ -66,7 +66,7 @@ if option1:
 	x=final_data11.iloc[:,:-1]
 	y=final_data11.iloc[:,-1]
 	test_si=st.slider('test_size',0.0,0.30,0.25)
-	x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=test_si)
+	x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=test_si,random_state=180)
 	st.write(f'The Train Size is {x_train.shape}')
 	st.write(f'The Test Size is {x_test.shape}')
 	rf=RandomForestClassifier()
@@ -87,16 +87,18 @@ if option1:
 	val12=st.selectbox(x.columns[11],('Yes','No'))
 	val13=st.selectbox(x.columns[12],('Yes','No'))
 	val=ohe1.transform([[val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13]])
-	pred=np.c_[int(val1),val]
-	if np.where(rf.predict_proba(pred)[:,0]>=0.3,0,1)==1:
-		st.header('The Person has Diabetes')
-	elif np.where(rf.predict_proba(pred)[:,0]>=0.3,0,1)==0:
-		st.header('The Person does not have Diabetes')
+	button=st.button('Predict')
+	if button:
+		pred=np.c_[int(val1),val]
+		if np.where(rf.predict_proba(pred)[:,0]>=0.3,0,1)==1:
+			st.header('The Person has Diabetes')
+		elif np.where(rf.predict_proba(pred)[:,0]>=0.3,0,1)==0:
+			st.header('The Person does not have Diabetes')
 else:
 	x=final_data.iloc[:,:-1]
 	y=final_data.iloc[:,-1]
 	test_si=st.slider('test_size',0.0,0.30,0.25)
-	x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=test_si)
+	x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=test_si,random_state=180)
 	st.write(f'The Train Size is {x_train.shape}')
 	st.write(f'The Test Size is {x_test.shape}')
 	rf=RandomForestClassifier()
@@ -120,11 +122,13 @@ else:
 	val15=st.selectbox(x.columns[14],('Yes','No'))
 	val16=st.selectbox(x.columns[15],('Yes','No'))
 	val=ohe.transform([[val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14,val15,val16]])
-	pred=np.c_[int(val1),val]
-	if np.where(rf.predict_proba(pred)[:,0]>=0.3,0,1)==1:
-		st.header('The Person has Diabetes')
-	elif np.where(rf.predict_proba(pred)[:,0]>=0.3,0,1)==0:
-		st.header('The Person does not have Diabetes')
+	button=st.button('Predict')
+	if button:
+		pred=np.c_[int(val1),val]
+		if np.where(rf.predict_proba(pred)[:,0]>=0.3,0,1)==1:
+			st.header('The Person has Diabetes')
+		elif np.where(rf.predict_proba(pred)[:,0]>=0.3,0,1)==0:
+			st.header('The Person does not have Diabetes')
 
 
 
