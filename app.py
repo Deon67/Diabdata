@@ -11,7 +11,7 @@ from sklearn.ensemble import RandomForestClassifier
 st.write('# Diabetes Data Analytics')
 
 """
-Web App Which Gives a Complete Analysis of the Diabetes Data.This has been collected using direct questionnaires from the patients of Sylhet Diabetes Hospital in Sylhet,Bangladesh.
+Web App Which Gives a Complete Analysis of the Diabetes Data.This has been collected using direct questionnaires from the patients.
 
 """
 
